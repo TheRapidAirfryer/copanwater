@@ -37,7 +37,7 @@
   <main>
     <!-- ===== Portada ===== -->
     <section id="inicio" class="hero">
-      <div class="container">
+      <div class="container hero__content">
         <img class="hero__logo" src="logo.png" alt="Copan Water" width="600" height="295">
         <p class="hero__tag">Agua purificada · Honduras</p>
         <h1>Agua pura para tu hogar y tu negocio</h1>
@@ -47,8 +47,22 @@
           <a href="#productos" class="btn btn--outline">Ver productos</a>
         </div>
       </div>
-      <svg class="hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"></path>
+      <!-- Efectos de agua animados -->
+      <div class="hero__light" aria-hidden="true"></div>
+      <div class="hero__bubbles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <svg class="hero__waves" viewBox="0 24 150 28" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <path id="ola" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
+        </defs>
+        <g class="olas">
+          <use href="#ola" x="48" y="0"></use>
+          <use href="#ola" x="48" y="3"></use>
+          <use href="#ola" x="48" y="5"></use>
+          <use href="#ola" x="48" y="7"></use>
+        </g>
       </svg>
     </section>
 

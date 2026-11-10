@@ -127,7 +127,74 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
 }
 .hero__tag { text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem !important; font-weight: 600; margin-bottom: 12px !important; }
 .hero__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.hero__wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 60px; fill: var(--color-fondo); }
+.hero { overflow: hidden; }
+.hero__content { position: relative; z-index: 2; }
+
+/* Olas animadas */
+.hero__waves { position: absolute; bottom: -1px; left: 0; width: 100%; height: 90px; z-index: 1; }
+.olas use { animation: ola 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite; }
+.olas use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; fill: rgba(255, 255, 255, 0.7); }
+.olas use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; fill: rgba(255, 255, 255, 0.5); }
+.olas use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; fill: rgba(255, 255, 255, 0.3); }
+.olas use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; fill: var(--color-fondo); }
+@keyframes ola {
+  0% { transform: translate3d(-90px, 0, 0); }
+  100% { transform: translate3d(85px, 0, 0); }
+}
+
+/* Reflejos de luz en el agua */
+.hero__light {
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(255, 255, 255, 0.18), transparent 40%),
+    radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.12), transparent 45%),
+    radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.1), transparent 35%);
+  animation: luz 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes luz {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(4%, 3%) rotate(6deg); }
+  100% { transform: translate(-3%, -2%) rotate(-4deg); }
+}
+
+/* Burbujas que suben */
+.hero__bubbles { position: absolute; inset: 0; pointer-events: none; }
+.hero__bubbles span {
+  position: absolute;
+  bottom: -40px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.15) 60%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: burbuja 12s linear infinite;
+  opacity: 0;
+}
+.hero__bubbles span:nth-child(1)  { left: 6%;  width: 10px; height: 10px; animation-duration: 11s; animation-delay: 0s; }
+.hero__bubbles span:nth-child(2)  { left: 15%; width: 22px; height: 22px; animation-duration: 15s; animation-delay: 3s; }
+.hero__bubbles span:nth-child(3)  { left: 26%; width: 8px;  height: 8px;  animation-duration: 9s;  animation-delay: 6s; }
+.hero__bubbles span:nth-child(4)  { left: 38%; width: 16px; height: 16px; animation-duration: 13s; animation-delay: 1s; }
+.hero__bubbles span:nth-child(5)  { left: 50%; width: 12px; height: 12px; animation-duration: 10s; animation-delay: 8s; }
+.hero__bubbles span:nth-child(6)  { left: 61%; width: 26px; height: 26px; animation-duration: 17s; animation-delay: 4s; }
+.hero__bubbles span:nth-child(7)  { left: 72%; width: 9px;  height: 9px;  animation-duration: 8s;  animation-delay: 2s; }
+.hero__bubbles span:nth-child(8)  { left: 81%; width: 18px; height: 18px; animation-duration: 14s; animation-delay: 7s; }
+.hero__bubbles span:nth-child(9)  { left: 89%; width: 11px; height: 11px; animation-duration: 11s; animation-delay: 5s; }
+.hero__bubbles span:nth-child(10) { left: 95%; width: 15px; height: 15px; animation-duration: 12s; animation-delay: 9s; }
+@keyframes burbuja {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  50%  { transform: translate(12px, -50vh); }
+  90%  { opacity: 0.6; }
+  100% { transform: translate(-8px, -105vh); opacity: 0; }
+}
+
+/* Respetar a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .olas use, .hero__light, .hero__bubbles span { animation: none; }
+  .hero__bubbles { display: none; }
+}
 .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
 .hero p { font-size: 1.15rem; max-width: 600px; margin: 0 auto 32px; opacity: 0.95; }
 .btn--light { background: #fff; color: var(--color-primario); }
