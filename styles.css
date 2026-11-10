@@ -1,8 +1,8 @@
 /* ===== Variables (cambia aquí los colores y fuentes) ===== */
 :root {
-  --color-primario: #0284c7;
-  --color-primario-oscuro: #0369a1;
-  --color-acento: #06b6d4;
+  --color-primario: #2f6fd8;
+  --color-primario-oscuro: #2457b5;
+  --color-acento: #4aa3e8;
   --color-texto: #1f2937;
   --color-suave: #6b7280;
   --color-fondo: #ffffff;
@@ -81,7 +81,9 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
   text-decoration: none;
 }
 .logo span { color: var(--color-primario); }
-.logo__drop { margin-right: 4px; }
+.logo { display: flex; align-items: center; }
+.logo img { height: 46px; width: auto; }
+.hero__logo { width: min(420px, 80%); height: auto; margin: 0 auto 20px; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2)); }
 
 .nav ul {
   display: flex;
@@ -118,7 +120,7 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
 /* ===== Portada ===== */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #0c4a6e, var(--color-primario) 55%, var(--color-acento));
+  background: linear-gradient(180deg, var(--color-acento), var(--color-primario));
   color: #fff;
   text-align: center;
   padding: 120px 0 140px;
@@ -222,6 +224,7 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
   margin-bottom: 16px;
 }
 .form input:focus,
+.form select { background: #fff; }
 .form select:focus,
 .form textarea:focus {
   outline: 2px solid var(--color-primario);
@@ -234,14 +237,14 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
 
 /* ===== Pie ===== */
 .footer {
-  background: #0c4a6e;
+  background: #1e3f7a;
   color: #e0f2fe;
   text-align: center;
   padding: 24px 0;
   font-size: 0.9rem;
 }
 .footer p { margin: 0; }
-.footer__logo { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px !important; }
+.footer__logo { width: 140px; height: auto; margin: 0 auto 10px; }
 
 /* ===== Botón flotante WhatsApp ===== */
 .whatsapp-float {
