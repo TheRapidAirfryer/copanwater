@@ -90,24 +90,63 @@
       <div class="container">
         <h2 class="center">Nuestros productos</h2>
         <p class="center subtitle">Elige la presentación que mejor se adapte a ti.</p>
-        <div class="cards">
-          <article class="card">
-            <div class="card__icon">🫙</div>
-            <h3>Garrafón 5 galones</h3>
-            <p>Ideal para el hogar y la oficina. Recarga o envase nuevo.</p>
-            <p class="card__price">L. 00.00</p>
+        <div class="products">
+          <article class="product" data-nombre="Botellón 5 galones" data-precio="0">
+            <div class="product__img">
+              <span class="product__badge">Más vendido</span>
+              <img src="producto-botellon.jpg" alt="Botellón Copan Water de 5 galones (18.9 litros)" loading="lazy">
+            </div>
+            <div class="product__body">
+              <h3>Botellón 5 galones</h3>
+              <p class="product__desc">18.9 litros de agua envasada. Ideal para el hogar y la oficina.</p>
+              <p class="product__price">L. 00.00</p>
+              <div class="product__actions">
+                <div class="qty">
+                  <button type="button" class="qty__btn" data-accion="menos" aria-label="Quitar uno">−</button>
+                  <input type="number" class="qty__input" value="1" min="1" max="99" aria-label="Cantidad">
+                  <button type="button" class="qty__btn" data-accion="mas" aria-label="Agregar uno">+</button>
+                </div>
+                <button type="button" class="btn product__add">Agregar</button>
+              </div>
+            </div>
           </article>
-          <article class="card">
-            <div class="card__icon">🧴</div>
-            <h3>Botellas</h3>
-            <p>Presentaciones personales, perfectas para llevar o para eventos.</p>
-            <p class="card__price">Desde L. 00.00</p>
+
+          <article class="product" data-nombre="Botella de agua" data-precio="0">
+            <div class="product__img">
+              <img src="producto-botella.jpg" alt="Botella de agua purificada Copan Water" loading="lazy">
+            </div>
+            <div class="product__body">
+              <h3>Botella de agua</h3>
+              <p class="product__desc">Agua purificada 100% pura, perfecta para llevar o para eventos.</p>
+              <p class="product__price">L. 00.00</p>
+              <div class="product__actions">
+                <div class="qty">
+                  <button type="button" class="qty__btn" data-accion="menos" aria-label="Quitar uno">−</button>
+                  <input type="number" class="qty__input" value="1" min="1" max="99" aria-label="Cantidad">
+                  <button type="button" class="qty__btn" data-accion="mas" aria-label="Agregar uno">+</button>
+                </div>
+                <button type="button" class="btn product__add">Agregar</button>
+              </div>
+            </div>
           </article>
-          <article class="card">
-            <div class="card__icon">💧</div>
-            <h3>Bolsas de agua</h3>
-            <p>Prácticas y económicas, por unidad o por fardo.</p>
-            <p class="card__price">Desde L. 00.00</p>
+
+          <article class="product" data-nombre="Bolsa de agua" data-precio="0">
+            <div class="product__img">
+              <img class="product__img--cover" src="producto-bolsa.jpg" alt="Bolsa de agua purificada Copan Water" loading="lazy">
+            </div>
+            <div class="product__body">
+              <h3>Bolsa de agua</h3>
+              <p class="product__desc">Práctica y económica, por unidad o por fardo.</p>
+              <p class="product__price">L. 00.00</p>
+              <div class="product__actions">
+                <div class="qty">
+                  <button type="button" class="qty__btn" data-accion="menos" aria-label="Quitar uno">−</button>
+                  <input type="number" class="qty__input" value="1" min="1" max="99" aria-label="Cantidad">
+                  <button type="button" class="qty__btn" data-accion="mas" aria-label="Agregar uno">+</button>
+                </div>
+                <button type="button" class="btn product__add">Agregar</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -157,9 +196,9 @@
 
           <label for="producto">Producto</label>
           <select id="producto" name="producto">
-            <option>Garrafón 5 galones</option>
-            <option>Botellas</option>
-            <option>Bolsas de agua</option>
+            <option>Botellón 5 galones</option>
+            <option>Botella de agua</option>
+            <option>Bolsa de agua</option>
             <option>Otro / consulta</option>
           </select>
 
@@ -180,6 +219,18 @@
       <p>&copy; <span id="year"></span> Copan Water. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <!-- Barra del pedido (aparece al agregar productos) -->
+  <div class="cart" id="cart" hidden>
+    <div class="cart__info">
+      <strong id="cart-count">0 productos</strong>
+      <span id="cart-items"></span>
+    </div>
+    <div class="cart__actions">
+      <button type="button" class="cart__clear" id="cart-clear">Vaciar</button>
+      <a href="#" class="btn cart__send" id="cart-send" target="_blank" rel="noopener">Enviar pedido</a>
+    </div>
+  </div>
 
   <!-- Botón flotante de WhatsApp -->
   <a href="#" class="whatsapp-float js-whatsapp" aria-label="Escribir por WhatsApp">

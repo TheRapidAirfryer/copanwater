@@ -51,7 +51,7 @@ const observadorNav = new IntersectionObserver((entradas) => {
 secciones.forEach((s) => observadorNav.observe(s));
 
 // ===== Animación de aparición =====
-const elementosReveal = document.querySelectorAll('.section h2, .card, .two-cols > *');
+const elementosReveal = document.querySelectorAll('.section h2, .card, .product, .two-cols > *');
 elementosReveal.forEach((el) => el.classList.add('reveal'));
 
 const observadorReveal = new IntersectionObserver((entradas) => {
@@ -95,6 +95,57 @@ form.addEventListener('submit', (e) => {
   estado.textContent = 'Abriendo WhatsApp con tu mensaje…';
   estado.className = 'form__status ok';
   form.reset();
+});
+
+// ===== Productos y pedido =====
+const pedido = {}; // { nombre: cantidad }
+const cart = document.getElementById('cart');
+const cartCount = document.getElementById('cart-count');
+const cartItems = document.getElementById('cart-items');
+const cartSend = document.getElementById('cart-send');
+
+function actualizarPedido() {
+  const items = Object.entries(pedido);
+  const total = items.reduce((suma, [, cant]) => suma + cant, 0);
+  cart.hidden = total === 0;
+  cartCount.textContent = `${total} ${total === 1 ? 'producto' : 'productos'}`;
+  cartItems.textContent = items.map(([nombre, cant]) => `${cant} × ${nombre}`).join(', ');
+
+  const texto = 'Hola Copan Water, quiero hacer este pedido:\n' +
+    items.map(([nombre, cant]) => `• ${cant} × ${nombre}`).join('\n');
+  cartSend.href = linkWhatsApp(texto);
+}
+
+document.querySelectorAll('.product').forEach((producto) => {
+  const input = producto.querySelector('.qty__input');
+  const agregar = producto.querySelector('.product__add');
+
+  producto.querySelectorAll('.qty__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const actual = parseInt(input.value, 10) || 1;
+      input.value = Math.min(99, Math.max(1, actual + (btn.dataset.accion === 'mas' ? 1 : -1)));
+    });
+  });
+
+  agregar.addEventListener('click', () => {
+    const cantidad = Math.min(99, Math.max(1, parseInt(input.value, 10) || 1));
+    const nombre = producto.dataset.nombre;
+    pedido[nombre] = (pedido[nombre] || 0) + cantidad;
+    input.value = 1;
+    actualizarPedido();
+
+    agregar.textContent = '✓ Agregado';
+    agregar.classList.add('added');
+    setTimeout(() => {
+      agregar.textContent = 'Agregar';
+      agregar.classList.remove('added');
+    }, 1200);
+  });
+});
+
+document.getElementById('cart-clear').addEventListener('click', () => {
+  Object.keys(pedido).forEach((k) => delete pedido[k]);
+  actualizarPedido();
 });
 
 // ===== Año actual en el pie =====
