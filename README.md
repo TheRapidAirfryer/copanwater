@@ -22,5 +22,7 @@ Otros comandos:
 - `npm run preview`: muestra esa versión final
 
 ## Pendiente
-- Poner el número real de WhatsApp en la constante `WHATSAPP` de `script.js`
-- Productos y precios reales, dirección, horario, logo y fotos
+- Precios reales de los productos
+- Dirección y horario
+
+El número de WhatsApp se cambia en la constante `WHATSAPP` de `script.js`.
