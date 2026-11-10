@@ -413,6 +413,66 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
 .step p { color: var(--color-suave); margin: 0; }
 
 /* ===== Contacto ===== */
+.contact { align-items: start; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  margin: 0 0 8px;
+}
+.contact__lead { color: var(--color-suave); margin: 0 0 28px; max-width: 460px; }
+
+.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e0eaf8;
+  color: var(--color-texto);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+a.contact-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30, 63, 122, 0.12); border-color: transparent; }
+.contact-card__icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #e0ecff;
+  color: var(--color-primario);
+}
+.contact-card__icon svg { width: 22px; height: 22px; }
+.contact-card__text { display: flex; flex-direction: column; min-width: 0; }
+.contact-card__label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-suave); font-weight: 600; }
+.contact-card__value { font-weight: 700; line-height: 1.35; }
+
+.contact-card--wide { grid-column: 1 / -1; }
+.contact-card--wa { grid-column: 1 / -1; background: linear-gradient(135deg, #25d366, #1ebe5a); border: none; color: #fff; }
+.contact-card--wa .contact-card__icon { background: rgba(255, 255, 255, 0.2); color: #fff; }
+.contact-card--wa .contact-card__icon svg { width: 26px; height: 26px; }
+.contact-card--wa .contact-card__label { color: rgba(255, 255, 255, 0.85); }
+.contact-card--wa .contact-card__value { font-size: 1.25rem; }
+
+.form--card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(30, 63, 122, 0.1);
+}
+.form__title { font-size: 1.3rem; margin-bottom: 18px; }
+
+@media (max-width: 560px) {
+  .contact-cards { grid-template-columns: 1fr; }
+  .form--card { padding: 22px; }
+}
+
 .contact-info { list-style: none; padding: 0; }
 .contact-info li { margin-bottom: 8px; }
 
