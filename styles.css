@@ -16,6 +16,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 64px; }
 
 body {
   margin: 0;
@@ -227,6 +228,26 @@ h1, h2, h3 { line-height: 1.2; margin-top: 0; }
 .subtitle { color: var(--color-suave); margin-top: -8px; }
 .features { list-style: none; padding: 0; margin: 16px 0 0; }
 .features li { margin-bottom: 6px; font-weight: 500; }
+
+.about__photo { margin: 0; position: relative; }
+.about__photo img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(47, 111, 216, 0.25);
+}
+.about__photo::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border-radius: 18px;
+  background: var(--color-fondo-alt);
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .about__photo::before { display: none; }
+}
 
 /* ===== Tarjetas ===== */
 .cards {
