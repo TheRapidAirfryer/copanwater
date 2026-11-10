@@ -1,0 +1,287 @@
+/* ===== Variables (cambia aquí los colores y fuentes) ===== */
+:root {
+  --color-primario: #0284c7;
+  --color-primario-oscuro: #0369a1;
+  --color-acento: #06b6d4;
+  --color-texto: #1f2937;
+  --color-suave: #6b7280;
+  --color-fondo: #ffffff;
+  --color-fondo-alt: #f0f9ff;
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radio: 10px;
+  --ancho-max: 1100px;
+}
+
+/* ===== Base ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--color-primario); }
+
+h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+
+.container {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.center { text-align: center; }
+
+/* ===== Botón ===== */
+.btn {
+  display: inline-block;
+  background: var(--color-primario);
+  color: #fff;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radio);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--color-primario-oscuro); }
+
+/* ===== Encabezado ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-fondo);
+  border-bottom: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+.header.scrolled { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+.logo span { color: var(--color-primario); }
+.logo__drop { margin-right: 4px; }
+
+.nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav a {
+  color: var(--color-texto);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav a:hover,
+.nav a.active { color: var(--color-primario); }
+
+/* Botón hamburguesa (solo móvil) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  width: 24px;
+  height: 3px;
+  background: var(--color-texto);
+  border-radius: 2px;
+}
+
+/* ===== Portada ===== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #0c4a6e, var(--color-primario) 55%, var(--color-acento));
+  color: #fff;
+  text-align: center;
+  padding: 120px 0 140px;
+}
+.hero__tag { text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem !important; font-weight: 600; margin-bottom: 12px !important; }
+.hero__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.hero__wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 60px; fill: var(--color-fondo); }
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+.hero p { font-size: 1.15rem; max-width: 600px; margin: 0 auto 32px; opacity: 0.95; }
+.btn--light { background: #fff; color: var(--color-primario); }
+.btn--light:hover { background: #e0f2fe; }
+.btn--outline { background: transparent; border: 2px solid #fff; color: #fff; }
+.btn--outline:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* ===== Secciones ===== */
+.section { padding: 80px 0; }
+.section--alt { background: var(--color-fondo-alt); }
+.section h2 { font-size: 2rem; margin-bottom: 20px; }
+
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.image-placeholder {
+  aspect-ratio: 4 / 3;
+  background: var(--color-fondo-alt);
+  border: 2px dashed #d1d5db;
+  border-radius: var(--radio);
+  display: grid;
+  place-items: center;
+  color: var(--color-suave);
+}
+
+.subtitle { color: var(--color-suave); margin-top: -8px; }
+.features { list-style: none; padding: 0; margin: 16px 0 0; }
+.features li { margin-bottom: 6px; font-weight: 500; }
+
+/* ===== Tarjetas ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+.card {
+  background: var(--color-fondo);
+  padding: 32px 24px;
+  border-radius: var(--radio);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.card__icon { font-size: 2rem; color: var(--color-primario); margin-bottom: 12px; }
+.card p { color: var(--color-suave); margin: 0; }
+.card { text-align: center; }
+.card__price { margin-top: 16px !important; font-weight: 700; font-size: 1.2rem; color: var(--color-primario) !important; }
+
+/* ===== Pasos ===== */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+.step__num {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-primario);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.step p { color: var(--color-suave); margin: 0; }
+
+/* ===== Contacto ===== */
+.contact-info { list-style: none; padding: 0; }
+.contact-info li { margin-bottom: 8px; }
+
+.form { display: flex; flex-direction: column; }
+.form label { font-weight: 600; margin-bottom: 6px; }
+.form input,
+.form select,
+.form textarea {
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radio);
+  margin-bottom: 16px;
+}
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: 2px solid var(--color-primario);
+  border-color: transparent;
+}
+.form .error { border-color: #dc2626; }
+.form__status { margin: 12px 0 0; font-weight: 600; }
+.form__status.ok { color: #16a34a; }
+.form__status.fail { color: #dc2626; }
+
+/* ===== Pie ===== */
+.footer {
+  background: #0c4a6e;
+  color: #e0f2fe;
+  text-align: center;
+  padding: 24px 0;
+  font-size: 0.9rem;
+}
+.footer p { margin: 0; }
+.footer__logo { font-weight: 700; font-size: 1.1rem; margin-bottom: 6px !important; }
+
+/* ===== Botón flotante WhatsApp ===== */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  transition: transform 0.2s;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+/* ===== Animación al hacer scroll ===== */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--color-fondo);
+    border-bottom: 1px solid #e5e7eb;
+    display: none;
+  }
+  .nav.open { display: block; }
+  .nav ul { flex-direction: column; gap: 0; padding: 8px 20px 16px; }
+  .nav li a { display: block; padding: 12px 0; }
+
+  .hero { padding: 80px 0 110px; }
+  .section { padding: 56px 0; }
+  .two-cols { grid-template-columns: 1fr; gap: 32px; }
+}

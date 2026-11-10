@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copan Water | Agua purificada en Honduras</title>
+  <meta name="description" content="Copan Water: agua purificada de calidad con servicio a domicilio en Honduras.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Encabezado y navegación ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="Copan Water, inicio">
+        <span class="logo__drop" aria-hidden="true">💧</span>Copan<span>Water</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#pedidos">Cómo pedir</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Portada ===== -->
+    <section id="inicio" class="hero">
+      <div class="container">
+        <p class="hero__tag">Agua purificada · Honduras</p>
+        <h1>Agua pura para tu hogar y tu negocio</h1>
+        <p>En Copan Water purificamos cada gota con procesos de calidad para que tu familia tome agua segura todos los días.</p>
+        <div class="hero__actions">
+          <a href="#" class="btn btn--light js-whatsapp">Pedir por WhatsApp</a>
+          <a href="#productos" class="btn btn--outline">Ver productos</a>
+        </div>
+      </div>
+      <svg class="hero__wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"></path>
+      </svg>
+    </section>
+
+    <!-- ===== Nosotros ===== -->
+    <section id="nosotros" class="section">
+      <div class="container two-cols">
+        <div>
+          <h2>Sobre Copan Water</h2>
+          <p>Somos una empresa hondureña dedicada a llevar agua purificada de calidad a hogares, oficinas y negocios.</p>
+          <p>Nuestro proceso de purificación garantiza agua limpia, segura y con buen sabor, y nuestro servicio de entrega te la lleva hasta la puerta.</p>
+          <ul class="features">
+            <li>✔ Proceso de purificación por etapas</li>
+            <li>✔ Envases limpios y sellados</li>
+            <li>✔ Entrega a domicilio</li>
+          </ul>
+        </div>
+        <div class="image-placeholder" aria-hidden="true">Foto de la planta o del equipo</div>
+      </div>
+    </section>
+
+    <!-- ===== Productos ===== -->
+    <section id="productos" class="section section--alt">
+      <div class="container">
+        <h2 class="center">Nuestros productos</h2>
+        <p class="center subtitle">Elige la presentación que mejor se adapte a ti.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card__icon">🫙</div>
+            <h3>Garrafón 5 galones</h3>
+            <p>Ideal para el hogar y la oficina. Recarga o envase nuevo.</p>
+            <p class="card__price">L. 00.00</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">🧴</div>
+            <h3>Botellas</h3>
+            <p>Presentaciones personales, perfectas para llevar o para eventos.</p>
+            <p class="card__price">Desde L. 00.00</p>
+          </article>
+          <article class="card">
+            <div class="card__icon">💧</div>
+            <h3>Bolsas de agua</h3>
+            <p>Prácticas y económicas, por unidad o por fardo.</p>
+            <p class="card__price">Desde L. 00.00</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Cómo pedir ===== -->
+    <section id="pedidos" class="section">
+      <div class="container">
+        <h2 class="center">¿Cómo hacer tu pedido?</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <h3>Escríbenos</h3>
+            <p>Mándanos un mensaje por WhatsApp o llámanos.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <h3>Elige tu producto</h3>
+            <p>Dinos qué necesitas y la cantidad.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <h3>Recíbelo en casa</h3>
+            <p>Te lo llevamos hasta tu puerta.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Contacto ===== -->
+    <section id="contacto" class="section section--alt">
+      <div class="container two-cols">
+        <div>
+          <h2>Contacto</h2>
+          <p>¿Quieres hacer un pedido o tienes alguna pregunta? Escríbenos.</p>
+          <ul class="contact-info">
+            <li><strong>WhatsApp / Teléfono:</strong> +504 0000-0000</li>
+            <li><strong>Dirección:</strong> Copán, Honduras</li>
+            <li><strong>Horario:</strong> Lunes a sábado, 7:00 a.m. – 5:00 p.m.</li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/copanwaterhn/" target="_blank" rel="noopener">@copanwaterhn</a></li>
+          </ul>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+
+          <label for="producto">Producto</label>
+          <select id="producto" name="producto">
+            <option>Garrafón 5 galones</option>
+            <option>Botellas</option>
+            <option>Bolsas de agua</option>
+            <option>Otro / consulta</option>
+          </select>
+
+          <label for="mensaje">Mensaje (cantidad, dirección…)</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+          <button type="submit" class="btn">Enviar por WhatsApp</button>
+          <p class="form__status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Pie de página ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo">💧 Copan Water</p>
+      <p>&copy; <span id="year"></span> Copan Water. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="#" class="whatsapp-float js-whatsapp" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#fff" d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.2.6 4.4 1.7 6.3L3 29l7.2-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.2 9.8 10 5 16 5s10.8 4.8 10.8 10.7S21.9 26.2 16 26.2zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.4z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
